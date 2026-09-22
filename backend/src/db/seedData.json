@@ -1,0 +1,1560 @@
+{
+  "categories": [
+    {
+      "id": "network",
+      "name": "Network",
+      "icon": "Wifi",
+      "description": "Wi-Fi drops, no internet access, VPN failures, slow connections."
+    },
+    {
+      "id": "printer",
+      "name": "Printer",
+      "icon": "Printer",
+      "description": "Printer offline, spooler problems, print jobs stuck in queue."
+    },
+    {
+      "id": "display",
+      "name": "Display",
+      "icon": "Monitor",
+      "description": "Resolution errors, no signal, multi-monitor setup problems."
+    },
+    {
+      "id": "peripheral",
+      "name": "Peripheral",
+      "icon": "Mouse",
+      "description": "Keyboard, mouse, webcam, USB device not detected."
+    },
+    {
+      "id": "hardware",
+      "name": "Computer / Hardware",
+      "icon": "Cpu",
+      "description": "Overheating, won’t power on, blue screens, hardware failures."
+    },
+    {
+      "id": "audio",
+      "name": "Audio",
+      "icon": "Volume2",
+      "description": "No sound, microphone not working, audio device conflicts."
+    },
+    {
+      "id": "software",
+      "name": "Software",
+      "icon": "AppWindow",
+      "description": "App crashes, installation failures, licensing errors."
+    },
+    {
+      "id": "os",
+      "name": "Operating System",
+      "icon": "Settings2",
+      "description": "Boot failures, update errors, slow startup, system freezes."
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "icon": "ShieldAlert",
+      "description": "Login failures, suspicious activity, MFA and password issues."
+    },
+    {
+      "id": "storage",
+      "name": "Storage",
+      "icon": "HardDrive",
+      "description": "Low disk space, drive not detected, slow read/write speeds."
+    }
+  ],
+  "issues": [
+    {
+      "symptoms": [
+        "Browser shows \"no internet\"",
+        "Pages fail to load",
+        "Wi-Fi icon shows connected"
+      ],
+      "visualGuide": "network-topology",
+      "offlineAvailable": true,
+      "id": "net-no-internet",
+      "title": "No Internet Connection",
+      "category": "network",
+      "description": "Device is connected to a network but cannot reach the internet.",
+      "difficulty": "Easy",
+      "estimatedTime": "5 minutes",
+      "steps": [
+        {
+          "title": "Check physical connection",
+          "instruction": "Make sure your Ethernet cable is connected properly or Wi-Fi is enabled on your device."
+        },
+        {
+          "title": "Check Wi-Fi / Ethernet status",
+          "instruction": "Confirm your device shows a connected network in the system tray or settings panel."
+        },
+        {
+          "title": "Check IP address",
+          "instruction": "Open network settings and confirm you have a valid IP address, not one starting with 169.254."
+        },
+        {
+          "title": "Ping the gateway",
+          "instruction": "Run a ping test against your default gateway to confirm local network connectivity."
+        },
+        {
+          "title": "Test DNS",
+          "instruction": "Try reaching a site by IP address. If that works but domain names fail, DNS is the issue."
+        },
+        {
+          "title": "Restart network adapter",
+          "instruction": "Disable and re-enable your network adapter, or restart your router."
+        }
+      ],
+      "solution": "Restarting the network adapter and renewing the IP address typically restores connectivity."
+    },
+    {
+      "symptoms": [
+        "Connection drops every few minutes",
+        "Reconnects automatically",
+        "Weak signal indicator"
+      ],
+      "visualGuide": "wifi-signal",
+      "offlineAvailable": true,
+      "id": "net-wifi-disconnect",
+      "title": "Wi-Fi Keeps Disconnecting",
+      "category": "network",
+      "description": "Wi-Fi connection drops intermittently throughout the day.",
+      "difficulty": "Medium",
+      "estimatedTime": "10 minutes",
+      "steps": [
+        {
+          "title": "Check signal strength",
+          "instruction": "Move closer to the access point and see if the drops stop."
+        },
+        {
+          "title": "Check for interference",
+          "instruction": "Other electronics, microwaves, or neighboring networks can cause interference."
+        },
+        {
+          "title": "Update Wi-Fi driver",
+          "instruction": "Outdated wireless adapter drivers are a common cause of instability."
+        },
+        {
+          "title": "Disable power saving on adapter",
+          "instruction": "Power-saving mode can cause the adapter to drop the connection when idle."
+        },
+        {
+          "title": "Forget and reconnect to network",
+          "instruction": "Remove the saved network profile and reconnect with the password."
+        }
+      ],
+      "solution": "Disabling adapter power-saving mode and updating the driver resolves most intermittent drops."
+    },
+    {
+      "symptoms": [
+        "Pages load slowly",
+        "Video calls buffer",
+        "Downloads crawl"
+      ],
+      "visualGuide": "network-topology",
+      "offlineAvailable": true,
+      "id": "net-slow-internet",
+      "title": "Slow Internet",
+      "category": "network",
+      "description": "Internet is connected but pages and downloads are unusually slow.",
+      "difficulty": "Easy",
+      "estimatedTime": "8 minutes",
+      "steps": [
+        {
+          "title": "Run a speed test",
+          "instruction": "Compare your current speed against your plan’s expected speed."
+        },
+        {
+          "title": "Check connected devices",
+          "instruction": "Too many devices streaming or downloading can saturate bandwidth."
+        },
+        {
+          "title": "Check for background updates",
+          "instruction": "OS or app updates can silently consume bandwidth."
+        },
+        {
+          "title": "Switch to 5GHz band",
+          "instruction": "If on Wi-Fi, the 5GHz band is faster and less congested than 2.4GHz."
+        },
+        {
+          "title": "Restart router",
+          "instruction": "A simple router restart clears many congestion and memory issues."
+        }
+      ],
+      "solution": "Switching to the 5GHz band and restarting the router usually restores expected speeds."
+    },
+    {
+      "symptoms": [
+        "\"Server not found\" errors",
+        "IP addresses work, domains don’t"
+      ],
+      "visualGuide": "network-topology",
+      "offlineAvailable": true,
+      "id": "net-dns-not-working",
+      "title": "DNS Not Working",
+      "category": "network",
+      "description": "Domain names fail to resolve even though the network connection is active.",
+      "difficulty": "Medium",
+      "estimatedTime": "7 minutes",
+      "steps": [
+        {
+          "title": "Test with a known IP",
+          "instruction": "Try navigating directly to an IP address to confirm it’s a DNS-specific issue."
+        },
+        {
+          "title": "Flush DNS cache",
+          "instruction": "Clear the local DNS resolver cache to remove stale records."
+        },
+        {
+          "title": "Switch DNS servers",
+          "instruction": "Try a public DNS provider such as 1.1.1.1 or 8.8.8.8."
+        },
+        {
+          "title": "Restart DNS client service",
+          "instruction": "Restart the operating system’s DNS client service."
+        }
+      ],
+      "solution": "Switching to a public DNS server after flushing the cache resolves most DNS failures."
+    },
+    {
+      "symptoms": [
+        "No link light on port",
+        "\"Network cable unplugged\" message"
+      ],
+      "visualGuide": "ethernet-diagram",
+      "offlineAvailable": true,
+      "id": "net-ethernet-not-detected",
+      "title": "Ethernet Not Detected",
+      "category": "network",
+      "description": "The system does not recognize a wired Ethernet connection.",
+      "difficulty": "Easy",
+      "estimatedTime": "6 minutes",
+      "steps": [
+        {
+          "title": "Inspect the cable",
+          "instruction": "Check both ends of the Ethernet cable for damage or loose connections."
+        },
+        {
+          "title": "Check the port link light",
+          "instruction": "A lit or blinking light on the port indicates a physical link."
+        },
+        {
+          "title": "Try a different port",
+          "instruction": "Test the cable in another port on the router or switch."
+        },
+        {
+          "title": "Update Ethernet driver",
+          "instruction": "An outdated or corrupted driver can prevent detection."
+        },
+        {
+          "title": "Test with a different cable",
+          "instruction": "Swap in a known-good cable to rule out a faulty one."
+        }
+      ],
+      "solution": "Replacing a damaged cable or reseating the connection restores the wired link."
+    },
+    {
+      "symptoms": [
+        "\"Connection failed\" error",
+        "Authentication timeout",
+        "Tunnel drops immediately"
+      ],
+      "visualGuide": "network-topology",
+      "offlineAvailable": false,
+      "id": "net-vpn-failed",
+      "title": "VPN Connection Failed",
+      "category": "network",
+      "description": "Corporate VPN client fails to connect or authenticate.",
+      "difficulty": "Medium",
+      "estimatedTime": "10 minutes",
+      "steps": [
+        {
+          "title": "Check base internet connectivity",
+          "instruction": "A VPN needs a working internet connection first."
+        },
+        {
+          "title": "Verify credentials",
+          "instruction": "Confirm your username, password, and MFA code are current."
+        },
+        {
+          "title": "Check VPN server status",
+          "instruction": "The corporate VPN gateway may be under maintenance."
+        },
+        {
+          "title": "Restart VPN client",
+          "instruction": "Fully quit and relaunch the VPN application."
+        },
+        {
+          "title": "Reinstall VPN client",
+          "instruction": "A corrupted client install can prevent tunnel negotiation."
+        }
+      ],
+      "solution": "Most VPN failures are resolved by refreshing credentials and restarting the client."
+    },
+    {
+      "symptoms": [
+        "Address starts with 169.254",
+        "\"IP conflict\" warning"
+      ],
+      "visualGuide": "network-topology",
+      "offlineAvailable": true,
+      "id": "net-ip-problem",
+      "title": "IP Address Problem",
+      "category": "network",
+      "description": "Device receives an invalid or conflicting IP address.",
+      "difficulty": "Medium",
+      "estimatedTime": "7 minutes",
+      "steps": [
+        {
+          "title": "Release current IP",
+          "instruction": "Release the current DHCP lease from the network adapter."
+        },
+        {
+          "title": "Renew IP address",
+          "instruction": "Request a new address from the DHCP server."
+        },
+        {
+          "title": "Check for IP conflicts",
+          "instruction": "Two devices may be using the same static address."
+        },
+        {
+          "title": "Restart DHCP service on router",
+          "instruction": "Restarting the router refreshes the DHCP lease table."
+        }
+      ],
+      "solution": "Releasing and renewing the IP address resolves the vast majority of address conflicts."
+    },
+    {
+      "symptoms": [
+        "Can’t reach shared drives",
+        "Can’t print to network printer"
+      ],
+      "visualGuide": "network-topology",
+      "offlineAvailable": true,
+      "id": "net-local-access",
+      "title": "Cannot Access Local Network",
+      "category": "network",
+      "description": "Device has internet access but cannot reach other devices on the local network.",
+      "difficulty": "Medium",
+      "estimatedTime": "9 minutes",
+      "steps": [
+        {
+          "title": "Confirm same subnet",
+          "instruction": "Both devices should be on the same network subnet."
+        },
+        {
+          "title": "Check network profile",
+          "instruction": "Ensure the network is set to \"Private\" rather than \"Public\"."
+        },
+        {
+          "title": "Check firewall rules",
+          "instruction": "Local firewall settings may block file and printer sharing."
+        },
+        {
+          "title": "Ping the target device",
+          "instruction": "Ping the other device’s IP address to test reachability."
+        }
+      ],
+      "solution": "Switching the network profile to Private typically restores local device visibility."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "ethernet-diagram",
+      "offlineAvailable": true,
+      "id": "net-router-unresponsive",
+      "title": "Router Not Responding",
+      "category": "network",
+      "description": "The router admin page or network is completely unresponsive.",
+      "difficulty": "Easy",
+      "estimatedTime": "5 minutes",
+      "steps": [
+        {
+          "title": "Check power and lights",
+          "instruction": "Confirm the router is powered on and status lights are active."
+        },
+        {
+          "title": "Power cycle the router",
+          "instruction": "Unplug for 30 seconds, then plug back in."
+        },
+        {
+          "title": "Check for firmware updates",
+          "instruction": "Outdated firmware can cause the router to become unresponsive."
+        },
+        {
+          "title": "Factory reset as last resort",
+          "instruction": "If nothing else works, a factory reset may be required."
+        }
+      ],
+      "solution": "A power cycle resolves the majority of unresponsive router issues."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "network-topology",
+      "offlineAvailable": true,
+      "id": "net-limited-connectivity",
+      "title": "Limited Connectivity Warning",
+      "category": "network",
+      "description": "Windows or macOS reports \"limited\" or \"no internet, secured\" connectivity.",
+      "difficulty": "Medium",
+      "estimatedTime": "8 minutes",
+      "steps": [
+        {
+          "title": "Check IP configuration",
+          "instruction": "A self-assigned address indicates a DHCP failure."
+        },
+        {
+          "title": "Restart network adapter",
+          "instruction": "Disable and re-enable the adapter to force a new DHCP request."
+        },
+        {
+          "title": "Reset network stack",
+          "instruction": "Reset TCP/IP stack and Winsock catalog if applicable."
+        }
+      ],
+      "solution": "Resetting the network stack usually clears the limited connectivity state."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "print-offline",
+      "title": "Printer Shows Offline",
+      "category": "printer",
+      "description": "The printer appears as offline even though it is powered on.",
+      "difficulty": "Easy",
+      "estimatedTime": "5 minutes",
+      "steps": [
+        {
+          "title": "Check power and connection",
+          "instruction": "Confirm the printer is powered on and connected to the network or USB port."
+        },
+        {
+          "title": "Set as default printer",
+          "instruction": "Ensure the correct printer is set as the default device."
+        },
+        {
+          "title": "Restart print spooler",
+          "instruction": "Restart the print spooler service to clear a stuck state."
+        },
+        {
+          "title": "Remove and re-add printer",
+          "instruction": "Delete the printer from your device and add it again."
+        }
+      ],
+      "solution": "Restarting the print spooler service brings most printers back online."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "print-spooler",
+      "title": "Print Spooler Errors",
+      "category": "printer",
+      "description": "The print spooler service crashes or fails to start.",
+      "difficulty": "Medium",
+      "estimatedTime": "8 minutes",
+      "steps": [
+        {
+          "title": "Check spooler service status",
+          "instruction": "Open services and confirm the Print Spooler is running."
+        },
+        {
+          "title": "Clear the print queue folder",
+          "instruction": "Stuck jobs in the spooler folder can crash the service."
+        },
+        {
+          "title": "Restart the spooler service",
+          "instruction": "Stop and start the service after clearing the queue."
+        },
+        {
+          "title": "Update printer driver",
+          "instruction": "A corrupted driver can repeatedly crash the spooler."
+        }
+      ],
+      "solution": "Clearing the spooler folder and restarting the service resolves most spooler crashes."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "print-stuck-queue",
+      "title": "Print Jobs Stuck in Queue",
+      "category": "printer",
+      "description": "Documents remain in the print queue and never print.",
+      "difficulty": "Easy",
+      "estimatedTime": "5 minutes",
+      "steps": [
+        {
+          "title": "Open the print queue",
+          "instruction": "View pending jobs in the printer queue window."
+        },
+        {
+          "title": "Cancel stuck jobs",
+          "instruction": "Cancel all pending jobs, especially the oldest one."
+        },
+        {
+          "title": "Restart spooler service",
+          "instruction": "Restarting the spooler clears any lingering job locks."
+        },
+        {
+          "title": "Resend the print job",
+          "instruction": "Try printing the document again from the source application."
+        }
+      ],
+      "solution": "Cancelling stuck jobs and restarting the spooler clears the queue."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "print-quality",
+      "title": "Poor Print Quality",
+      "category": "printer",
+      "description": "Printed pages show streaks, faded text, or incorrect colors.",
+      "difficulty": "Easy",
+      "estimatedTime": "6 minutes",
+      "steps": [
+        {
+          "title": "Check ink or toner levels",
+          "instruction": "Low ink or toner is the most common cause of poor quality."
+        },
+        {
+          "title": "Run a nozzle/head cleaning",
+          "instruction": "Use the printer’s built-in cleaning utility."
+        },
+        {
+          "title": "Check paper type settings",
+          "instruction": "Mismatched paper settings can cause smudging or fading."
+        },
+        {
+          "title": "Replace cartridge if needed",
+          "instruction": "A worn cartridge may need replacement even if partially full."
+        }
+      ],
+      "solution": "Running a nozzle cleaning cycle resolves most streaking and fading issues."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "network-topology",
+      "offlineAvailable": true,
+      "id": "print-cannot-find",
+      "title": "Printer Not Found on Network",
+      "category": "printer",
+      "description": "The network printer does not appear during setup or search.",
+      "difficulty": "Medium",
+      "estimatedTime": "9 minutes",
+      "steps": [
+        {
+          "title": "Confirm printer network connection",
+          "instruction": "Check the printer’s display for its current IP address and network status."
+        },
+        {
+          "title": "Confirm same subnet",
+          "instruction": "The computer and printer must be on the same network segment."
+        },
+        {
+          "title": "Add printer by IP address",
+          "instruction": "Manually add the printer using its IP address instead of auto-discovery."
+        },
+        {
+          "title": "Check firewall settings",
+          "instruction": "Firewall rules may be blocking printer discovery protocols."
+        }
+      ],
+      "solution": "Adding the printer manually by IP address resolves most discovery failures."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "print-paper-jam",
+      "title": "Recurring Paper Jams",
+      "category": "printer",
+      "description": "Printer repeatedly jams even after clearing paper.",
+      "difficulty": "Easy",
+      "estimatedTime": "6 minutes",
+      "steps": [
+        {
+          "title": "Remove all jammed paper",
+          "instruction": "Carefully clear any visible jammed paper from the tray and rollers."
+        },
+        {
+          "title": "Check paper quality and size",
+          "instruction": "Worn, curled, or mismatched paper size causes frequent jams."
+        },
+        {
+          "title": "Clean the rollers",
+          "instruction": "Dust buildup on feed rollers reduces grip and causes misfeeds."
+        },
+        {
+          "title": "Reload paper properly",
+          "instruction": "Fan the stack and align it correctly in the tray before printing."
+        }
+      ],
+      "solution": "Cleaning the feed rollers and using proper paper resolves recurring jams."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "print-driver-error",
+      "title": "Printer Driver Error",
+      "category": "printer",
+      "description": "Print jobs fail with a driver-related error message.",
+      "difficulty": "Medium",
+      "estimatedTime": "10 minutes",
+      "steps": [
+        {
+          "title": "Identify the exact error",
+          "instruction": "Note the specific driver error code shown."
+        },
+        {
+          "title": "Remove the printer driver",
+          "instruction": "Uninstall the existing driver package completely."
+        },
+        {
+          "title": "Download the latest driver",
+          "instruction": "Get the current driver from the manufacturer."
+        },
+        {
+          "title": "Reinstall and test",
+          "instruction": "Install the fresh driver and print a test page."
+        }
+      ],
+      "solution": "Reinstalling a fresh driver package resolves most driver-related print failures."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "print-slow",
+      "title": "Printing Is Very Slow",
+      "category": "printer",
+      "description": "Documents take an unusually long time to print.",
+      "difficulty": "Easy",
+      "estimatedTime": "5 minutes",
+      "steps": [
+        {
+          "title": "Check document complexity",
+          "instruction": "Large images or high-resolution settings slow down printing."
+        },
+        {
+          "title": "Lower print quality setting",
+          "instruction": "Draft mode prints significantly faster for everyday documents."
+        },
+        {
+          "title": "Check connection type",
+          "instruction": "Wireless printing can be slower than a direct USB or wired connection."
+        }
+      ],
+      "solution": "Switching to draft quality or a wired connection speeds up most print jobs."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "display-diagram",
+      "offlineAvailable": true,
+      "id": "disp-no-signal",
+      "title": "Monitor Shows No Signal",
+      "category": "display",
+      "description": "The monitor displays \"No Signal\" even though the computer is on.",
+      "difficulty": "Easy",
+      "estimatedTime": "5 minutes",
+      "steps": [
+        {
+          "title": "Check cable connections",
+          "instruction": "Ensure the video cable is firmly connected at both ends."
+        },
+        {
+          "title": "Check the input source",
+          "instruction": "Confirm the monitor is set to the correct input (HDMI, DisplayPort, etc)."
+        },
+        {
+          "title": "Try a different cable",
+          "instruction": "Swap in a known-good cable to rule out a faulty one."
+        },
+        {
+          "title": "Test with another device",
+          "instruction": "Connect a different device to confirm the monitor itself works."
+        }
+      ],
+      "solution": "Reseating the cable or switching the input source restores the signal."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "disp-resolution",
+      "title": "Wrong Screen Resolution",
+      "category": "display",
+      "description": "Display appears blurry or icons are the wrong size.",
+      "difficulty": "Easy",
+      "estimatedTime": "4 minutes",
+      "steps": [
+        {
+          "title": "Open display settings",
+          "instruction": "Navigate to the display settings panel."
+        },
+        {
+          "title": "Select recommended resolution",
+          "instruction": "Choose the resolution marked as \"recommended\" for your monitor."
+        },
+        {
+          "title": "Update graphics driver",
+          "instruction": "An outdated driver can limit available resolution options."
+        }
+      ],
+      "solution": "Selecting the recommended resolution fixes blurry or misaligned displays."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "display-diagram",
+      "offlineAvailable": true,
+      "id": "disp-multi-monitor",
+      "title": "Multi-Monitor Setup Problems",
+      "category": "display",
+      "description": "A second monitor is not detected or displays incorrectly.",
+      "difficulty": "Medium",
+      "estimatedTime": "8 minutes",
+      "steps": [
+        {
+          "title": "Check both cable connections",
+          "instruction": "Verify each monitor has a secure video connection."
+        },
+        {
+          "title": "Detect displays",
+          "instruction": "Use the \"Detect\" option in display settings to force a re-scan."
+        },
+        {
+          "title": "Set display arrangement",
+          "instruction": "Arrange the monitors to match their physical layout."
+        },
+        {
+          "title": "Update graphics driver",
+          "instruction": "Multi-monitor issues are often resolved by a driver update."
+        }
+      ],
+      "solution": "Forcing a display detection and updating the graphics driver resolves most setups."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "disp-flicker",
+      "title": "Screen Flickering",
+      "category": "display",
+      "description": "The display flickers intermittently or when running certain apps.",
+      "difficulty": "Medium",
+      "estimatedTime": "7 minutes",
+      "steps": [
+        {
+          "title": "Check refresh rate setting",
+          "instruction": "A mismatched refresh rate can cause visible flicker."
+        },
+        {
+          "title": "Update graphics driver",
+          "instruction": "Flicker is commonly caused by an outdated or corrupted driver."
+        },
+        {
+          "title": "Check cable connection",
+          "instruction": "A loose or damaged cable can cause intermittent flicker."
+        },
+        {
+          "title": "Test with another monitor",
+          "instruction": "Rule out a failing display panel by testing another monitor."
+        }
+      ],
+      "solution": "Updating the graphics driver resolves the majority of flickering issues."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "disp-color",
+      "title": "Incorrect Display Colors",
+      "category": "display",
+      "description": "Colors appear washed out, inverted, or tinted incorrectly.",
+      "difficulty": "Easy",
+      "estimatedTime": "5 minutes",
+      "steps": [
+        {
+          "title": "Check color profile",
+          "instruction": "An incorrect ICC color profile can distort colors."
+        },
+        {
+          "title": "Reset color calibration",
+          "instruction": "Restore default color and gamma settings."
+        },
+        {
+          "title": "Check cable type",
+          "instruction": "Some cables limit color depth compared to others."
+        }
+      ],
+      "solution": "Resetting the color profile to default corrects most color issues."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "disp-brightness",
+      "title": "Brightness Controls Not Working",
+      "category": "display",
+      "description": "Brightness slider has no effect on external or laptop screen.",
+      "difficulty": "Easy",
+      "estimatedTime": "4 minutes",
+      "steps": [
+        {
+          "title": "Check monitor OSD controls",
+          "instruction": "Some external monitors require brightness to be set on the device itself."
+        },
+        {
+          "title": "Update graphics driver",
+          "instruction": "A missing display driver can disable software brightness control."
+        },
+        {
+          "title": "Check for a stuck brightness key",
+          "instruction": "A stuck function key can override software adjustments."
+        }
+      ],
+      "solution": "Updating the graphics driver typically restores software brightness control."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "periph-keyboard",
+      "title": "Keyboard Not Detected",
+      "category": "peripheral",
+      "description": "The keyboard does not respond or is not recognized by the system.",
+      "difficulty": "Easy",
+      "estimatedTime": "5 minutes",
+      "steps": [
+        {
+          "title": "Check the connection",
+          "instruction": "Reseat the USB cable or check wireless receiver placement."
+        },
+        {
+          "title": "Try a different port",
+          "instruction": "Test the keyboard in another USB port."
+        },
+        {
+          "title": "Check batteries (wireless)",
+          "instruction": "Replace batteries if the keyboard is wireless."
+        },
+        {
+          "title": "Update or reinstall driver",
+          "instruction": "Reinstall the keyboard driver from device manager."
+        }
+      ],
+      "solution": "Reseating the connection or replacing batteries resolves most keyboard detection issues."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "periph-mouse",
+      "title": "Mouse Not Working",
+      "category": "peripheral",
+      "description": "Mouse cursor does not move or clicks are unresponsive.",
+      "difficulty": "Easy",
+      "estimatedTime": "4 minutes",
+      "steps": [
+        {
+          "title": "Check the connection",
+          "instruction": "Verify the USB cable or wireless dongle is firmly connected."
+        },
+        {
+          "title": "Try a different surface",
+          "instruction": "Optical mice can struggle on glass or reflective surfaces."
+        },
+        {
+          "title": "Check batteries (wireless)",
+          "instruction": "Low battery is a common cause of unresponsive wireless mice."
+        },
+        {
+          "title": "Test on another computer",
+          "instruction": "Rule out a hardware failure by testing elsewhere."
+        }
+      ],
+      "solution": "Replacing batteries or switching surfaces resolves the majority of mouse issues."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "periph-webcam",
+      "title": "Webcam Not Detected",
+      "category": "peripheral",
+      "description": "Video conferencing apps cannot find the webcam.",
+      "difficulty": "Medium",
+      "estimatedTime": "7 minutes",
+      "steps": [
+        {
+          "title": "Check physical connection",
+          "instruction": "Confirm the webcam is plugged in securely."
+        },
+        {
+          "title": "Check camera privacy settings",
+          "instruction": "Operating system privacy settings may be blocking camera access."
+        },
+        {
+          "title": "Close conflicting apps",
+          "instruction": "Another app may already be using the camera exclusively."
+        },
+        {
+          "title": "Update webcam driver",
+          "instruction": "Reinstall or update the camera driver."
+        }
+      ],
+      "solution": "Enabling camera access in privacy settings resolves most detection failures."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "periph-usb-device",
+      "title": "USB Device Not Recognized",
+      "category": "peripheral",
+      "description": "Windows or macOS reports an unrecognized USB device error.",
+      "difficulty": "Medium",
+      "estimatedTime": "8 minutes",
+      "steps": [
+        {
+          "title": "Try a different USB port",
+          "instruction": "Test the device in another port to rule out a faulty port."
+        },
+        {
+          "title": "Test on another computer",
+          "instruction": "Confirm whether the device itself is faulty."
+        },
+        {
+          "title": "Update USB controller driver",
+          "instruction": "Update or reinstall the USB host controller driver."
+        },
+        {
+          "title": "Check power management settings",
+          "instruction": "USB selective suspend can cause devices to disconnect."
+        }
+      ],
+      "solution": "Updating the USB controller driver resolves most \"unrecognized device\" errors."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "periph-bluetooth",
+      "title": "Bluetooth Device Won’t Pair",
+      "category": "peripheral",
+      "description": "A Bluetooth accessory fails to pair or repeatedly disconnects.",
+      "difficulty": "Medium",
+      "estimatedTime": "7 minutes",
+      "steps": [
+        {
+          "title": "Confirm Bluetooth is enabled",
+          "instruction": "Check that Bluetooth is turned on for both devices."
+        },
+        {
+          "title": "Remove and re-pair the device",
+          "instruction": "Delete the existing pairing and pair again from scratch."
+        },
+        {
+          "title": "Check device distance",
+          "instruction": "Move devices closer together, away from interference sources."
+        },
+        {
+          "title": "Update Bluetooth driver",
+          "instruction": "An outdated driver can cause pairing failures."
+        }
+      ],
+      "solution": "Removing and re-pairing the device resolves most Bluetooth connection problems."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "hw-wont-power-on",
+      "title": "Computer Won’t Power On",
+      "category": "hardware",
+      "description": "Pressing the power button produces no response.",
+      "difficulty": "Medium",
+      "estimatedTime": "9 minutes",
+      "steps": [
+        {
+          "title": "Check the power source",
+          "instruction": "Confirm the outlet and power cable are working."
+        },
+        {
+          "title": "Check power supply switch",
+          "instruction": "Some desktop power supplies have a physical on/off switch."
+        },
+        {
+          "title": "Try a different outlet",
+          "instruction": "Rule out a faulty outlet or power strip."
+        },
+        {
+          "title": "Check for loose internal cables",
+          "instruction": "On desktops, confirm internal power cables are seated."
+        }
+      ],
+      "solution": "A faulty outlet or a loose power cable accounts for most power-on failures."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "hw-overheating",
+      "title": "Computer Overheating",
+      "category": "hardware",
+      "description": "Device shuts down or throttles due to high temperatures.",
+      "difficulty": "Medium",
+      "estimatedTime": "10 minutes",
+      "steps": [
+        {
+          "title": "Check ventilation",
+          "instruction": "Ensure air vents are not blocked and the device is on a hard surface."
+        },
+        {
+          "title": "Clean dust from fans",
+          "instruction": "Dust buildup significantly reduces cooling efficiency."
+        },
+        {
+          "title": "Check background processes",
+          "instruction": "High CPU usage from an app can drive up temperatures."
+        },
+        {
+          "title": "Monitor temperatures",
+          "instruction": "Use a diagnostic tool to confirm temperatures return to normal."
+        }
+      ],
+      "solution": "Clearing dust and improving airflow resolves most overheating issues."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "hw-blue-screen",
+      "title": "Blue Screen / System Crash",
+      "category": "hardware",
+      "description": "System crashes with a stop error and restarts unexpectedly.",
+      "difficulty": "Hard",
+      "estimatedTime": "15 minutes",
+      "steps": [
+        {
+          "title": "Note the error code",
+          "instruction": "Record the stop code shown on the crash screen."
+        },
+        {
+          "title": "Check recent changes",
+          "instruction": "Recently installed drivers or hardware are common causes."
+        },
+        {
+          "title": "Run memory diagnostic",
+          "instruction": "Faulty RAM is a frequent cause of random crashes."
+        },
+        {
+          "title": "Update drivers",
+          "instruction": "Update graphics and chipset drivers to the latest stable version."
+        }
+      ],
+      "solution": "Identifying and updating the driver associated with the stop code resolves most crashes."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "hw-slow-performance",
+      "title": "Computer Running Slow",
+      "category": "hardware",
+      "description": "General sluggishness across applications and startup.",
+      "difficulty": "Easy",
+      "estimatedTime": "8 minutes",
+      "steps": [
+        {
+          "title": "Check startup programs",
+          "instruction": "Too many apps launching at startup slows the whole system."
+        },
+        {
+          "title": "Check available storage",
+          "instruction": "Low free disk space significantly impacts performance."
+        },
+        {
+          "title": "Check for malware",
+          "instruction": "Run a security scan to rule out background malicious processes."
+        },
+        {
+          "title": "Check for pending updates",
+          "instruction": "Pending OS updates can silently consume resources."
+        }
+      ],
+      "solution": "Disabling unnecessary startup apps and freeing disk space restores most of the speed."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "hw-battery-drain",
+      "title": "Laptop Battery Draining Fast",
+      "category": "hardware",
+      "description": "Battery depletes much faster than expected.",
+      "difficulty": "Medium",
+      "estimatedTime": "7 minutes",
+      "steps": [
+        {
+          "title": "Check battery health",
+          "instruction": "View the battery health report to check for degradation."
+        },
+        {
+          "title": "Check power-hungry apps",
+          "instruction": "Identify apps consuming excessive background power."
+        },
+        {
+          "title": "Adjust screen brightness",
+          "instruction": "Lowering brightness meaningfully extends battery life."
+        },
+        {
+          "title": "Update battery drivers",
+          "instruction": "Outdated power management drivers can cause inaccurate drain."
+        }
+      ],
+      "solution": "Adjusting brightness and closing power-hungry background apps extends battery life significantly."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "audio-no-sound",
+      "title": "No Sound Output",
+      "category": "audio",
+      "description": "No audio plays from speakers or headphones.",
+      "difficulty": "Easy",
+      "estimatedTime": "5 minutes",
+      "steps": [
+        {
+          "title": "Check volume and mute",
+          "instruction": "Confirm the system and application volume are not muted."
+        },
+        {
+          "title": "Check output device",
+          "instruction": "Ensure the correct playback device is selected."
+        },
+        {
+          "title": "Check physical connections",
+          "instruction": "Verify speaker or headphone cables are fully seated."
+        },
+        {
+          "title": "Update audio driver",
+          "instruction": "Reinstall or update the audio driver."
+        }
+      ],
+      "solution": "Selecting the correct output device resolves most no-sound issues."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "audio-mic-not-working",
+      "title": "Microphone Not Working",
+      "category": "audio",
+      "description": "Other participants cannot hear you during calls.",
+      "difficulty": "Easy",
+      "estimatedTime": "6 minutes",
+      "steps": [
+        {
+          "title": "Check mute status",
+          "instruction": "Confirm the microphone is not muted in the app or on hardware."
+        },
+        {
+          "title": "Check input device",
+          "instruction": "Ensure the correct microphone is selected as the input device."
+        },
+        {
+          "title": "Check microphone privacy settings",
+          "instruction": "The OS may be blocking app access to the microphone."
+        },
+        {
+          "title": "Test input levels",
+          "instruction": "Speak and confirm the input meter registers activity."
+        }
+      ],
+      "solution": "Enabling microphone access in privacy settings resolves most mute complaints."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "audio-device-conflict",
+      "title": "Audio Device Conflicts",
+      "category": "audio",
+      "description": "Multiple audio devices cause playback to switch unexpectedly.",
+      "difficulty": "Medium",
+      "estimatedTime": "6 minutes",
+      "steps": [
+        {
+          "title": "Review connected audio devices",
+          "instruction": "List all currently connected playback and recording devices."
+        },
+        {
+          "title": "Set a fixed default device",
+          "instruction": "Manually set your preferred device as default instead of automatic switching."
+        },
+        {
+          "title": "Disable unused devices",
+          "instruction": "Disable audio devices you rarely use to reduce switching conflicts."
+        }
+      ],
+      "solution": "Setting a fixed default device prevents unwanted automatic switching."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "sw-app-crash",
+      "title": "Application Keeps Crashing",
+      "category": "software",
+      "description": "A specific application closes unexpectedly or freezes.",
+      "difficulty": "Medium",
+      "estimatedTime": "8 minutes",
+      "steps": [
+        {
+          "title": "Check for updates",
+          "instruction": "Update the application to the latest available version."
+        },
+        {
+          "title": "Clear application cache",
+          "instruction": "Corrupted cache files can cause repeated crashes."
+        },
+        {
+          "title": "Check system compatibility",
+          "instruction": "Confirm the app supports your current operating system version."
+        },
+        {
+          "title": "Reinstall the application",
+          "instruction": "A clean reinstall resolves most persistent crash issues."
+        }
+      ],
+      "solution": "Reinstalling the application after clearing its cache resolves most crashes."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "sw-install-fail",
+      "title": "Installation Fails",
+      "category": "software",
+      "description": "Software installer returns an error and does not complete.",
+      "difficulty": "Medium",
+      "estimatedTime": "9 minutes",
+      "steps": [
+        {
+          "title": "Check available disk space",
+          "instruction": "Insufficient storage is a common install blocker."
+        },
+        {
+          "title": "Run installer as administrator",
+          "instruction": "Some installers require elevated permissions."
+        },
+        {
+          "title": "Disable antivirus temporarily",
+          "instruction": "Security software can sometimes block legitimate installers."
+        },
+        {
+          "title": "Download a fresh installer",
+          "instruction": "A corrupted download can cause installation failures."
+        }
+      ],
+      "solution": "Running the installer as administrator with sufficient disk space resolves most failures."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": false,
+      "id": "sw-license-error",
+      "title": "Software Licensing Error",
+      "category": "software",
+      "description": "Application reports an invalid or expired license.",
+      "difficulty": "Easy",
+      "estimatedTime": "6 minutes",
+      "steps": [
+        {
+          "title": "Check license status",
+          "instruction": "Verify your license or subscription is currently active."
+        },
+        {
+          "title": "Sign out and back in",
+          "instruction": "Refresh the license token by re-authenticating."
+        },
+        {
+          "title": "Check system date and time",
+          "instruction": "Incorrect system clock can invalidate license checks."
+        },
+        {
+          "title": "Contact IT for reactivation",
+          "instruction": "Escalate to IT if the license should be active but shows expired."
+        }
+      ],
+      "solution": "Signing out and back in refreshes the license token in most cases."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "os-slow-startup",
+      "title": "Slow Startup",
+      "category": "os",
+      "description": "The operating system takes an unusually long time to boot.",
+      "difficulty": "Easy",
+      "estimatedTime": "7 minutes",
+      "steps": [
+        {
+          "title": "Check startup applications",
+          "instruction": "Disable non-essential apps from launching at boot."
+        },
+        {
+          "title": "Check for pending updates",
+          "instruction": "Updates installing at boot can significantly delay startup."
+        },
+        {
+          "title": "Check disk health",
+          "instruction": "A failing or nearly full drive slows boot dramatically."
+        }
+      ],
+      "solution": "Disabling unnecessary startup apps significantly reduces boot time."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "os-update-error",
+      "title": "System Update Fails",
+      "category": "os",
+      "description": "Operating system update repeatedly fails to install.",
+      "difficulty": "Medium",
+      "estimatedTime": "12 minutes",
+      "steps": [
+        {
+          "title": "Check available disk space",
+          "instruction": "Updates require sufficient free space to install."
+        },
+        {
+          "title": "Check internet connection stability",
+          "instruction": "An unstable connection can interrupt the download."
+        },
+        {
+          "title": "Run update troubleshooter",
+          "instruction": "Built-in troubleshooting tools can repair common update issues."
+        },
+        {
+          "title": "Restart and retry",
+          "instruction": "A restart often clears whatever blocked the previous attempt."
+        }
+      ],
+      "solution": "Freeing disk space and running the built-in update troubleshooter resolves most failures."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "os-freeze",
+      "title": "System Freezes Randomly",
+      "category": "os",
+      "description": "The entire system becomes unresponsive without warning.",
+      "difficulty": "Hard",
+      "estimatedTime": "14 minutes",
+      "steps": [
+        {
+          "title": "Check recent software changes",
+          "instruction": "Recently installed apps or drivers are common culprits."
+        },
+        {
+          "title": "Check system resource usage",
+          "instruction": "A runaway process can consume all available memory or CPU."
+        },
+        {
+          "title": "Run system diagnostics",
+          "instruction": "Check for hardware issues affecting stability."
+        },
+        {
+          "title": "Update all drivers",
+          "instruction": "Outdated drivers are a frequent cause of full-system freezes."
+        }
+      ],
+      "solution": "Updating drivers and identifying the resource-heavy process resolves most freezing issues."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": false,
+      "id": "sec-login-fail",
+      "title": "Cannot Log In to Account",
+      "category": "security",
+      "description": "Login attempts fail with incorrect credentials or lockout messages.",
+      "difficulty": "Easy",
+      "estimatedTime": "5 minutes",
+      "steps": [
+        {
+          "title": "Verify credentials",
+          "instruction": "Double-check username and password for typos."
+        },
+        {
+          "title": "Check caps lock",
+          "instruction": "A stray caps lock is a common cause of failed logins."
+        },
+        {
+          "title": "Reset password if needed",
+          "instruction": "Use the self-service password reset if available."
+        },
+        {
+          "title": "Contact IT for account lockout",
+          "instruction": "Repeated failed attempts may require IT to unlock the account."
+        }
+      ],
+      "solution": "A self-service password reset resolves the majority of login failures."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": false,
+      "id": "sec-mfa-issue",
+      "title": "MFA Code Not Working",
+      "category": "security",
+      "description": "Multi-factor authentication codes are rejected or not received.",
+      "difficulty": "Medium",
+      "estimatedTime": "7 minutes",
+      "steps": [
+        {
+          "title": "Check device time sync",
+          "instruction": "Authenticator codes fail if the device clock has drifted."
+        },
+        {
+          "title": "Check network connection for SMS/push",
+          "instruction": "Confirm the device can receive SMS or push notifications."
+        },
+        {
+          "title": "Regenerate the code",
+          "instruction": "Wait for a fresh code rather than reusing an expired one."
+        },
+        {
+          "title": "Use backup codes",
+          "instruction": "Use previously saved backup codes if the primary method fails."
+        }
+      ],
+      "solution": "Syncing the device clock resolves the majority of rejected MFA codes."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": false,
+      "id": "sec-suspicious-activity",
+      "title": "Suspicious Account Activity",
+      "category": "security",
+      "description": "Unusual sign-in alerts or unrecognized activity on an account.",
+      "difficulty": "Medium",
+      "estimatedTime": "10 minutes",
+      "steps": [
+        {
+          "title": "Review recent sign-in activity",
+          "instruction": "Check the account’s sign-in log for unfamiliar locations or devices."
+        },
+        {
+          "title": "Change your password immediately",
+          "instruction": "Set a new, strong password as a precaution."
+        },
+        {
+          "title": "Revoke unfamiliar sessions",
+          "instruction": "Sign out any sessions you don’t recognize."
+        },
+        {
+          "title": "Report to IT security",
+          "instruction": "Escalate confirmed suspicious activity to the security team."
+        }
+      ],
+      "solution": "Changing the password and revoking unfamiliar sessions contains most account compromises."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "store-low-disk",
+      "title": "Low Disk Space",
+      "category": "storage",
+      "description": "System warns that available storage is critically low.",
+      "difficulty": "Easy",
+      "estimatedTime": "6 minutes",
+      "steps": [
+        {
+          "title": "Check largest files and folders",
+          "instruction": "Identify what is consuming the most space."
+        },
+        {
+          "title": "Empty recycle bin / trash",
+          "instruction": "Deleted files often remain until the bin is emptied."
+        },
+        {
+          "title": "Clear temporary files",
+          "instruction": "Temporary and cache files can accumulate significantly over time."
+        },
+        {
+          "title": "Move files to external storage",
+          "instruction": "Offload large infrequently used files to free up space."
+        }
+      ],
+      "solution": "Clearing temporary files and emptying the recycle bin frees up meaningful space quickly."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "store-drive-not-detected",
+      "title": "Drive Not Detected",
+      "category": "storage",
+      "description": "An internal or external drive does not appear in the system.",
+      "difficulty": "Medium",
+      "estimatedTime": "9 minutes",
+      "steps": [
+        {
+          "title": "Check physical connection",
+          "instruction": "Reseat the drive cable or USB connection."
+        },
+        {
+          "title": "Try a different port or cable",
+          "instruction": "Rule out a faulty port or cable."
+        },
+        {
+          "title": "Check disk management",
+          "instruction": "Confirm whether the OS sees the drive but hasn’t assigned a letter."
+        },
+        {
+          "title": "Test on another computer",
+          "instruction": "Determine if the drive itself has failed."
+        }
+      ],
+      "solution": "Reseating the connection or assigning a drive letter resolves most detection issues."
+    },
+    {
+      "symptoms": [],
+      "visualGuide": "generic",
+      "offlineAvailable": true,
+      "id": "store-slow-drive",
+      "title": "Slow Read/Write Speeds",
+      "category": "storage",
+      "description": "File transfers and app loading are significantly slower than expected.",
+      "difficulty": "Medium",
+      "estimatedTime": "8 minutes",
+      "steps": [
+        {
+          "title": "Check drive health",
+          "instruction": "Run a diagnostic to check for early signs of drive failure."
+        },
+        {
+          "title": "Check available free space",
+          "instruction": "Drives slow down significantly when nearly full."
+        },
+        {
+          "title": "Check for background processes",
+          "instruction": "Antivirus scans or sync tools can saturate disk activity."
+        },
+        {
+          "title": "Check cable/interface type",
+          "instruction": "Confirm the drive and port support the expected transfer speed."
+        }
+      ],
+      "solution": "Freeing space and pausing background disk activity restores expected transfer speeds."
+    }
+  ]
+}

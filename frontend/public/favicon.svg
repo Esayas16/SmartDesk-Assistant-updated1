@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="SmartDesk Assistant">
+  <title>SmartDesk Assistant</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12202e"/>
+      <stop offset="1" stop-color="#05080d"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e2f3d"/>
+      <stop offset="1" stop-color="#0b121b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- app tile -->
+  <rect width="64" height="64" rx="15" fill="url(#bg)"/>
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="none" stroke="#22d3ee" stroke-opacity="0.35" stroke-width="2"/>
+
+  <!-- monitor (the support "desk") -->
+  <rect x="8" y="17" width="43" height="28" rx="5" fill="url(#screen)" stroke="#22d3ee" stroke-width="4"/>
+  <path d="M29.5 45v6" stroke="#22d3ee" stroke-width="4" stroke-linecap="round"/>
+  <path d="M20 52h19" stroke="#22d3ee" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- diagnostic pulse (troubleshooting) -->
+  <path d="M14 32h6l3.5-8 5 15 4-11 2.5 4H45" fill="none" stroke="#67e8f9" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- AI sparkle, with a dark halo that cuts it out of the monitor corner -->
+  <path d="M48 6Q49.5 14.5 58 16Q49.5 17.5 48 26Q46.5 17.5 38 16Q46.5 14.5 48 6Z" fill="#0b121b" stroke="#0b121b" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M48 6Q49.5 14.5 58 16Q49.5 17.5 48 26Q46.5 17.5 38 16Q46.5 14.5 48 6Z" fill="#e6fbff"/>
+</svg>
