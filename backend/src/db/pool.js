@@ -10,8 +10,12 @@ if (!process.env.DATABASE_URL) {
   )
 }
 
+// Enable SSL when in production or when connecting to Render Postgres
+const isProduction = process.env.NODE_ENV === 'production' || process.env.RENDER === 'true'
+
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
+  ssl: isProduction ? { rejectUnauthorized: false } : false,
 })
 
 pool.on('error', (err) => {
